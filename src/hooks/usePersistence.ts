@@ -1,4 +1,3 @@
-// src/hooks/usePersistence.ts
 import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { useToast } from '@/components/ui/toast';
@@ -6,8 +5,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { BookEntry } from '@/types';
 import { useSession } from "next-auth/react";
 
+//
 interface SaveEntryParams {
-  id?: string; // NEW: allow passing existing ID
+  id?: string;
   sessionId: string;
   prompt: string;
   userResponse: string;

@@ -1,6 +1,7 @@
-/* src/app/globals.css */
+/* Tailwind inport */
 @import 'tailwindcss';
 
+/* Fonts */
 @layer base {
   :root {
     --font-inter: 'Inter', sans-serif;
@@ -9,7 +10,7 @@
     --font-italianno: 'Italianno', cursive;
   }
   
-  /* Custom colors */
+  /* Custom colors for book */
   .bg-amber-50 {
     background-color: #fffbeb;
   }
@@ -38,7 +39,7 @@
     color: #92400e;
   }
   
-  /* Illuminated first letter styling */
+  /* Large firest letter */
   .first-letter\:text-5xl.first-letter\:text-red-900.first-letter\:float-left.first-letter\:mr-1.first-letter\:leading-tight::first-letter {
     font-size: 4rem;
     color: #7f1d1d;
@@ -122,7 +123,7 @@
     background-blend-mode: multiply;
   }
   
-  /* Marginalia styling */
+  /* Marginalia or Blurb styling */
   .marginalia {
     font-family: var(--font-italianno);
     color: #7f1d1d;
@@ -131,7 +132,7 @@
     font-style: italic;
   }
   
-  /* Colored text for historical feel */
+  /* Colored text for historical feel and vibes */
   .text-gold {
     color: #b7922a;
   }

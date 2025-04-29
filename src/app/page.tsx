@@ -1,4 +1,4 @@
-// src/app/page.tsx
+// Handles authentication using NextAuth.js with Google as the provider
 import { Suspense } from "react";
 import BookClient from "@/components/BookClient";
 

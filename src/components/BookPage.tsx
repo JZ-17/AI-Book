@@ -1,8 +1,9 @@
-// Updated BookPage.tsx with Garamond font and gold randomization
+// Also 
 'use client';
 import { BookEntry } from "@/types";
 import { useState, useEffect } from "react";
 
+// Interface for the props of the BookPage component
 interface BookPageProps {
   content: BookEntry;
   currentPage: number;
@@ -29,8 +30,10 @@ export default function BookPage({
   isLoading
 }: BookPageProps) {
 
+  // State to manage page turning animation
   const [isPageTurning, setIsPageTurning] = useState(false);
 
+  // Effect to set user response when content changes
   useEffect(() => {
     if (content && content.userResponse === "") {
       setUserResponse("");
@@ -39,6 +42,7 @@ export default function BookPage({
     }
   }, [content, setUserResponse]);
 
+  // Function to handle page flipping
   const handleFlipPage = (direction: 'prev' | 'next') => {
     setIsPageTurning(true);
     setTimeout(() => {
@@ -47,6 +51,7 @@ export default function BookPage({
     }, 300);
   };
 
+  // Function to format AI response and also randomize bold situations
   const formatAiResponse = (text: string) => {
     if (!text) return "";
 
@@ -57,6 +62,7 @@ export default function BookPage({
     });
   };
 
+  // Check if user and AI have responded
   const hasUserResponded = content.userResponse && content.userResponse.trim() !== '';
   const hasAiResponded = content.aiResponse && content.aiResponse.trim() !== '';
 

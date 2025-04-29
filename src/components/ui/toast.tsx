@@ -1,8 +1,9 @@
-// src/components/ui/toast.tsx
+// Basically the notification system
 'use client';
 
 import { createContext, useContext, useState, ReactNode } from 'react';
 
+// Toast component to display notifications
 interface Toast {
   id: string;
   title: string;
@@ -10,14 +11,17 @@ interface Toast {
   variant: 'default' | 'success' | 'error' | 'warning';
 }
 
+// Context to manage toast notifications
 interface ToastContextType {
   toasts: Toast[];
   toast: (toast: Omit<Toast, 'id'>) => void;
   removeToast: (id: string) => void;
 }
 
+// Create a context for the toast notifications
 const ToastContext = createContext<ToastContextType | undefined>(undefined);
 
+// Wrapper comment for toast
 export function ToastProvider({ children }: { children: ReactNode }) {
   const [toasts, setToasts] = useState<Toast[]>([]);
 

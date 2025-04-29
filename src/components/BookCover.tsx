@@ -1,4 +1,4 @@
-// src/components/BookCover.tsx
+// Book cover, had help with chat cause I am a big back end guy and cannot code react that well
 'use client';
 
 import React from 'react';
@@ -18,7 +18,7 @@ const BookCover: React.FC<BookCoverProps> = ({
 }) => {
   return (
     <div className="relative flex flex-col items-center justify-center h-full bg-[#7a1b1b] text-center p-8">
-      {/* Ornate gold and navy border */}
+      {/* Outer boarder gold and navy border */}
       <div className="absolute inset-0 border-8 border-yellow-600 m-8 rounded-xl">
         <div className="absolute inset-2 border-4 border-[#001f3f] rounded-lg"></div>
         <div className="absolute inset-4 border-4 border-yellow-500 rounded-lg"></div>
@@ -55,7 +55,7 @@ const BookCover: React.FC<BookCoverProps> = ({
           </div>
         ) : (
           <div className="relative w-80 h-80 mb-12">
-            {/* Ornate frame with navy accent */}
+            {/* Fancy frame with navy accent */}
             <div className="absolute -inset-5 rounded-full border-4 border-yellow-500" style={{ boxShadow: '0 0 0 6px #001f3f' }}></div>
 
             {/* Fallback initial */}

@@ -1,12 +1,14 @@
 // src/components/SavingIndicator.tsx
 'use client';
 
+// Inferface for saving
 interface SavingIndicatorProps {
   isSaving: boolean;
   lastSaveTime: Date | null;
   offlineEntryCount: number;
 }
 
+// Saving Notif layout
 export default function SavingIndicator({ 
   isSaving, 
   lastSaveTime, 

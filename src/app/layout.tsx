@@ -1,4 +1,3 @@
-// src/app/layout.tsx
 import { Inter, Cinzel, EB_Garamond, Italianno } from "next/font/google";
 import { Providers } from "@/components/Providers";
 import "./globals.css";
@@ -9,6 +8,7 @@ const cinzel = Cinzel({ subsets: ["latin"], variable: "--font-cinzel", weight: [
 const ebGaramond = EB_Garamond({ subsets: ["latin"], variable: "--font-eb-garamond" });
 const italianno = Italianno({ weight: "400", variable: "--font-italianno", subsets: ["latin"] });
 
+// Root layout for app, also wraps all pages and components
 export default function RootLayout({
   children,
 }: {

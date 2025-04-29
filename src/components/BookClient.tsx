@@ -1,6 +1,6 @@
-// src/components/BookClient.tsx
 'use client';
 
+// Imports 
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
@@ -13,6 +13,7 @@ import { BookEntry } from "@/types";
 import { useToast } from "./ui/toast";
 
 export default function BookClient() {
+  // Authentication and session management
   const { data: session, status } = useSession();
   const [currentPage, setCurrentPage] = useState(0);
   const [bookContent, setBookContent] = useState<BookEntry[]>([]);
@@ -22,6 +23,7 @@ export default function BookClient() {
   const [currentSessionId, setCurrentSessionId] = useState<string | null>(null);
   const { toast } = useToast();
 
+  // Persistence and saving management
   const {
     isSaving,
     lastSaveTime,
@@ -30,15 +32,16 @@ export default function BookClient() {
     updateSessionAccess,
   } = usePersistence();
 
+  // Start on the cover page
   useEffect(() => {
     if (session?.user?.id) {
       loadUserSession();
       setAuthorImage("/default-author-image.png");
-      // Always start at the cover page when logging in
       setCurrentPage(0);
     }
   }, [session]);
 
+  // A BUNCHHHHHH of random quotes
   const quotesPool = [
     `"This book changed my life!" — Albert Einstein`,
     `"I owe all my success to these exercises." — Oprah Winfrey`,
@@ -68,6 +71,7 @@ export default function BookClient() {
     `"This book is a masterpiece." — Vincent van Gogh`,
   ];
 
+  // Retrieve random quotes, and also randomize colors, and font variation (bold, ital, neither or both)
   const getRandomQuotes = () => {
     const colors = ['text-gold', 'text-medieval-blue', 'text-medieval-red'];
     const fonts = ['', 'italic', 'font-bold', 'italic font-bold'];
@@ -81,6 +85,7 @@ export default function BookClient() {
     }));
   };
 
+  // Load user session and book content (Had to use GPT to debug this a lottttt)
   const loadUserSession = async () => {
     if (!session?.user?.id) return;
     
@@ -146,6 +151,7 @@ export default function BookClient() {
     setIsLoading(false);
   };
 
+  // Start a new book session and entry for new user
   const initializeNewBook = async () => {
     if (!session?.user?.id) return;
 
@@ -184,6 +190,7 @@ export default function BookClient() {
     setIsLoading(false);
   };
 
+  // Open book to most recent page if old book, else start a new book
   const handleOpen = async () => {
     if (bookContent.length === 0) {
       // No existing content, start new book
@@ -200,6 +207,7 @@ export default function BookClient() {
     }
   };
 
+  // Handle user response and generate AI response
   const handleUserResponse = async () => {
     if (!userResponse.trim() || !currentSessionId) return;
 
@@ -252,6 +260,7 @@ export default function BookClient() {
     setUserResponse("");
   };
 
+  // Generate next prompt based on current book content
   const handleNextPrompt = async () => {
     if (!currentSessionId) return;
 
@@ -321,10 +330,11 @@ export default function BookClient() {
     );
   }
 
+  // When starting home page to sign in
   if (!session) {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-amber-50 bg-[url('/paper-texture.png')] bg-cover">
-        <h1 className="font-cinzel text-5xl text-red-900 mb-8">Your Interactive AI Book</h1>
+        <h1 className="font-cinzel text-5xl text-red-900 mb-8">Book of Dreams</h1>
         <p className="text-xl mb-8 font-eb-garamond">Sign in to begin your journey</p>
         <button 
           onClick={() => signIn("google")}

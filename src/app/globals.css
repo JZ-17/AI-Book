@@ -1,26 +1,200 @@
-@import "tailwindcss";
+/* src/app/globals.css */
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --font-inter: 'Inter', sans-serif;
+    --font-cinzel: 'Cinzel', serif;
+    --font-eb-garamond: 'EB Garamond', serif;
+    --font-italianno: 'Italianno', cursive;
+  }
+  
+  /* Custom colors */
+  .bg-amber-50 {
+    background-color: #fffbeb;
+  }
+  
+  .bg-amber-100 {
+    background-color: #fef3c7;
+  }
+  
+  .bg-amber-200 {
+    background-color: #fde68a;
+  }
+  
+  .bg-amber-300 {
+    background-color: #fcd34d;
+  }
+  
+  .bg-amber-400 {
+    background-color: #fbbf24;
+  }
+  
+  .bg-amber-500 {
+    background-color: #f59e0b;
+  }
+  
+  .text-amber-800 {
+    color: #92400e;
+  }
+  
+  /* Illuminated first letter styling */
+  .first-letter\:text-5xl.first-letter\:text-red-900.first-letter\:float-left.first-letter\:mr-1.first-letter\:leading-tight::first-letter {
+    font-size: 4rem;
+    color: #7f1d1d;
+    float: left;
+    margin-right: 0.4rem;
+    line-height: 0.8;
+    font-family: var(--font-cinzel);
+  }
+  
+  /* Page turning animation */
+  @keyframes pageInRight {
+    from {
+      transform: rotateY(-90deg);
+      transform-origin: left;
+      opacity: 0;
+    }
+    to {
+      transform: rotateY(0);
+      transform-origin: left;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes pageInLeft {
+    from {
+      transform: rotateY(90deg);
+      transform-origin: right;
+      opacity: 0;
+    }
+    to {
+      transform: rotateY(0);
+      transform-origin: right;
+      opacity: 1;
+    }
+  }
+  
+  .animate-page-in-right {
+    animation: pageInRight 0.3s ease-out forwards;
+  }
+  
+  .animate-page-in-left {
+    animation: pageInLeft 0.3s ease-out forwards;
+  }
+  
+  /* Toast animations */
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+  
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out forwards;
+  }
+  
+  .animate-slide-out {
+    animation: slideOut 0.3s ease-in forwards;
+  }
+  
+  /* Paper texture background */
+  .bg-paper {
+    background-color: #fffaf0;
+    background-image: url('/paper-texture.png');
+    background-size: cover;
+    background-blend-mode: multiply;
+  }
+  
+  /* Marginalia styling */
+  .marginalia {
+    font-family: var(--font-italianno);
+    color: #7f1d1d;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    font-style: italic;
+  }
+  
+  /* Colored text for historical feel */
+  .text-gold {
+    color: #b7922a;
+  }
+  
+  .text-medieval-blue {
+    color: #000080;
+  }
+  
+  .text-medieval-red {
+    color: #7f1d1d;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .book-shadow {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 
+                0 5px 10px -5px rgba(0, 0, 0, 0.05),
+                0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+  
+  .page-padding {
+    padding: 2rem;
+  }
+  
+  .book-page {
+    background-color: #fffbeb;
+    background-image: url('/paper-texture.png');
+    background-size: cover;
+    border-radius: 0.5rem;
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  }
+  
+  .btn-primary {
+    background-color: #7f1d1d;
+    color: white;
+    font-family: var(--font-cinzel);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #991b1b;
+  }
+  
+  .btn-primary:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+  }
+  
+  .input-primary {
+    width: 100%;
+    padding: 1rem;
+    font-family: var(--font-eb-garamond);
+    font-size: 1rem;
+    border: 1px solid #fbbf24;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 0.25rem;
+    outline: none;
+  }
+  
+  .input-primary:focus {
+    border-color: #7f1d1d;
+    box-shadow: 0 0 0 1px #7f1d1d;
+  }
 }

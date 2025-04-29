@@ -1,6 +1,5 @@
 // Updated BookPage.tsx with Garamond font and gold randomization
 'use client';
-
 import { BookEntry } from "@/types";
 import { useState, useEffect } from "react";
 
@@ -72,22 +71,22 @@ export default function BookPage({
           <button 
             onClick={() => handleFlipPage('prev')}
             disabled={currentPage <= 1 || isLoading}
-            className="bg-red-900 text-white px-4 py-2 rounded disabled:bg-gray-400 disabled:cursor-not-allowed font-ebGaramond text-sm"
+            className="bg-red-900 text-white px-4 py-2 rounded disabled:bg-gray-400 disabled:cursor-not-allowed font-eb-garamond text-sm"
           >
             Previous Page
           </button>
           <button 
             onClick={onReturnToCover}
-            className="bg-blue-900 text-white px-4 py-2 rounded font-ebGaramond text-sm"
+            className="bg-blue-900 text-white px-4 py-2 rounded font-eb-garamond text-sm"
           >
             Return to Cover
           </button>
         </div>
-        <span className="font-ebGaramond text-lg">Page {currentPage} of {totalPages}</span>
+        <span className="font-eb-garamond text-lg">Page {currentPage} of {totalPages}</span>
         <button 
           onClick={() => handleFlipPage('next')}
           disabled={currentPage >= totalPages || isLoading}
-          className="bg-red-900 text-white px-4 py-2 rounded disabled:bg-gray-400 disabled:cursor-not-allowed font-ebGaramond text-sm"
+          className="bg-red-900 text-white px-4 py-2 rounded disabled:bg-gray-400 disabled:cursor-not-allowed font-eb-garamond text-sm"
         >
           Next Page
         </button>
@@ -104,7 +103,7 @@ export default function BookPage({
 
         <div className="flex-1 p-6 overflow-y-auto">
           <h2 
-            className="font-ebGaramond text-2xl text-red-900 mb-6"
+            className="font-eb-garamond text-2xl text-red-900 mb-6"
             dangerouslySetInnerHTML={{ __html: formatAiResponse(content.prompt) }}
           ></h2>
 
@@ -126,12 +125,12 @@ export default function BookPage({
                     value={userResponse}
                     onChange={(e) => setUserResponse(e.target.value)}
                     placeholder="Write your response here..."
-                    className="w-full h-40 p-4 font-ebGaramond text-base border border-amber-400 bg-white bg-opacity-70 rounded focus:ring-1 focus:ring-red-900 focus:border-red-900 outline-none"
+                    className="w-full h-40 p-4 font-eb-garamond text-base border border-amber-400 bg-white bg-opacity-70 rounded focus:ring-1 focus:ring-red-900 focus:border-red-900 outline-none"
                   />
                   <button 
                     onClick={onSubmitResponse}
                     disabled={!userResponse.trim()}
-                    className="mt-4 bg-red-900 text-white px-4 py-2 rounded hover:bg-red-800 font-ebGaramond disabled:bg-gray-400"
+                    className="mt-4 bg-red-900 text-white px-4 py-2 rounded hover:bg-red-800 font-eb-garamond disabled:bg-gray-400"
                   >
                     Submit
                   </button>
@@ -140,15 +139,15 @@ export default function BookPage({
                 <>
                   {hasUserResponded && (
                     <div className="mb-8 p-4 bg-blue-50 bg-opacity-70 rounded border-l-4 border-blue-900">
-                      <h3 className="text-blue-900 font-ebGaramond text-xl mb-2">Your Response:</h3>
-                      <p className="font-ebGaramond">{content.userResponse}</p>
+                      <h3 className="text-blue-900 font-eb-garamond text-xl mb-2">Your Response:</h3>
+                      <p className="font-eb-garamond">{content.userResponse}</p>
                     </div>
                   )}
                   {hasAiResponded && (
                     <div className="p-4 bg-white bg-opacity-70 rounded border-l-4 border-red-900">
-                      <h3 className="text-red-900 font-ebGaramond text-xl mb-2">Guidance:</h3>
+                      <h3 className="text-red-900 font-eb-garamond text-xl mb-2">Guidance:</h3>
                       <p
-                        className="first-letter:text-5xl first-letter:text-red-900 first-letter:italic first-letter:font-normal first-letter:float-left first-letter:mr-1 font-ebGaramond text-lg"
+                        className="first-letter:text-5xl first-letter:text-red-900 first-letter:italic first-letter:font-normal first-letter:float-left first-letter:mr-1 font-eb-garamond text-lg"
                         dangerouslySetInnerHTML={{ __html: formatAiResponse(content.aiResponse) }}
                       />
                     </div>
@@ -165,7 +164,7 @@ export default function BookPage({
         <div className="flex justify-center mt-8">
           <button
             onClick={onNextPrompt}
-            className="bg-red-900 text-white px-6 py-3 rounded hover:bg-red-800 font-ebGaramond"
+            className="bg-red-900 text-white px-6 py-3 rounded hover:bg-red-800 font-eb-garamond"
           >
             Continue Your Journey
           </button>

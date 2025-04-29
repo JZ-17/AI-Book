@@ -166,7 +166,7 @@ export default function BookPage({
             onClick={onNextPrompt}
             className="bg-red-900 text-white px-6 py-3 rounded hover:bg-red-800 font-eb-garamond"
           >
-            Enter Greatness
+            Continue Your Journey
           </button>
         </div>
       )}

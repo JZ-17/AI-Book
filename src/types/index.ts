@@ -1,3 +1,4 @@
+// Contains all the types used in the app
 export interface User {
     id: string;
     email: string;

@@ -1,4 +1,4 @@
-// src/lib/gpt.ts
+// Generate GPT content for a book
 export async function generateBookContent(prompt: string, messages: any[]) {
   try {
     const response = await fetch("/api/gpt", {

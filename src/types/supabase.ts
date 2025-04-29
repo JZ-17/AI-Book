@@ -1,3 +1,5 @@
+// Supabase Declarations
+
 export interface Database {
     public: {
       Tables: {

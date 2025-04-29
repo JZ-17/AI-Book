@@ -1,4 +1,4 @@
-// src/types/next-auth.d.ts
+// Next Auth decalrations 
 import NextAuth, { DefaultSession } from "next-auth"
 import { JWT } from "next-auth/jwt"
 

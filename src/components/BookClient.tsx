@@ -334,7 +334,7 @@ export default function BookClient() {
   if (!session) {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-amber-50 bg-[url('/paper-texture.png')] bg-cover">
-        <h1 className="font-cinzel text-5xl text-red-900 mb-8">Book of Dreams</h1>
+        <h1 className="font-cinzel text-5xl text-red-900 mb-8">Odyssey of Dreams</h1>
         <p className="text-xl mb-8 font-eb-garamond">Sign in to begin your journey</p>
         <button 
           onClick={() => signIn("google")}
